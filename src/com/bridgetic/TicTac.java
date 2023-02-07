@@ -3,10 +3,12 @@ import java.util.*;
 public class TicTac {
     static Scanner sc =new Scanner(System.in);
     static String[] board=new String[10];
+    static String playletter =null;
         public static void main(String[] args) {
             UC1();
             chooseLetter();
             UC3showboard();
+            UC4();
         }
         public static void UC1(){
             for(int i = 1; i< board.length; i++){
@@ -35,7 +37,26 @@ public class TicTac {
         System.out.println("| " +board[4] + " | " +board[5]+ " | " +board[6]+ " |\n-------------");
         System.out.println("| " +board[7] + " | " +board[8]+ " | " +board[9]+ " |\n-------------");
     }
+    public static void UC4(){
+        System.out.println("");
+        UC3showboard();
+        System.out.println("Enter a slot number to Enter "+playletter);
+        int input = sc.nextInt();
+
+        switch (input) {
+            case 1, 2, 3, 4, 5, 6, 7, 8, 9:
+                board[input] = playletter;
+                UC3showboard();
+                break;
+            default:
+                System.out.println("Invalid slot Number. please Enter valid slot Number");
+                UC4();
+                break;
+
+        }
 
 
+    }
 }
+
 
